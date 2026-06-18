@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from . import lab01, lab02, lab03, lab04, lab05, lab06, lab07, lab08, lab09, lab10
 from .cli import main
+from .code_templates import get_code
 
 LAB_MODULES = {
     1: lab01,
@@ -61,6 +62,7 @@ __all__ = [
     "lab08",
     "lab09",
     "lab10",
+    "get_code",
     "list_labs",
     "main",
     "run_lab",

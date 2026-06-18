@@ -6,6 +6,7 @@ import argparse
 from typing import Callable
 
 from . import lab01, lab02, lab03, lab04, lab05, lab06, lab07, lab08, lab09, lab10
+from .code_templates import get_code
 
 
 LAB_RUNNERS: dict[int, Callable[..., object]] = {
@@ -23,9 +24,10 @@ LAB_RUNNERS: dict[int, Callable[..., object]] = {
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Run tripodhub ML lab programs.")
+    parser = argparse.ArgumentParser(description="Print or run tripodhub ML lab programs.")
     parser.add_argument("lab", nargs="?", type=int, choices=range(1, 11), help="Lab number to run")
     parser.add_argument("--list", action="store_true", help="List available lab numbers")
+    parser.add_argument("--run", action="store_true", help="Execute the lab instead of printing notebook code")
     parser.add_argument("--no-plots", action="store_true", help="Disable plotting where supported")
     parser.add_argument("--csv-path", help="CSV path for lab 4 Find-S input")
     return parser
@@ -37,6 +39,10 @@ def main() -> None:
 
     if args.list or args.lab is None:
         print("\n".join(str(number) for number in LAB_RUNNERS))
+        return
+
+    if not args.run:
+        print(get_code(args.lab))
         return
 
     runner = LAB_RUNNERS[args.lab]

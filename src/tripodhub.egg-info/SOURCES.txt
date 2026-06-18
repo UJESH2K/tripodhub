@@ -3,6 +3,7 @@ README.md
 pyproject.toml
 src/tripodhub/__init__.py
 src/tripodhub/cli.py
+src/tripodhub/code_templates.py
 src/tripodhub/lab01.py
 src/tripodhub/lab02.py
 src/tripodhub/lab03.py
