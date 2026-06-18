@@ -1,0 +1,2 @@
+[console_scripts]
+ml-lab = ml_lab_programs.cli:main

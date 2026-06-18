@@ -1,0 +1,70 @@
+Metadata-Version: 2.4
+Name: ml-lab-programs
+Version: 0.1.0
+Summary: A pip-installable collection of 10 machine learning lab programs.
+Author: aadit
+License-Expression: MIT
+Project-URL: Homepage, https://example.com/ml-lab-programs
+Keywords: machine-learning,labs,education,python
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib>=3.8
+Requires-Dist: numpy>=1.26
+Requires-Dist: pandas>=2.2
+Requires-Dist: scikit-learn>=1.5
+Requires-Dist: seaborn>=0.13
+Dynamic: license-file
+
+# ML Lab Programs
+
+This package contains the 10 experiments listed in the PESIT Machine Learning Lab manual.
+
+## Included labs
+
+1. Histogram, box plot, and outlier analysis on California Housing
+2. Correlation matrix, heatmap, and pair plot on California Housing
+3. PCA on Iris dataset
+4. Find-S algorithm using CSV training data
+5. KNN classification on generated points
+6. Locally Weighted Regression
+7. Linear and Polynomial Regression
+8. Decision Tree classification on Breast Cancer data
+9. Naive Bayes on Olivetti Faces
+10. K-means clustering on Breast Cancer data
+
+## Install locally
+
+```powershell
+python -m pip install -e .
+```
+
+## Run from Python
+
+```python
+from ml_lab_programs import lab01, lab04
+
+print(lab01.run(show_plots=False))
+print(lab04.run())
+```
+
+## Run from terminal
+
+```powershell
+ml-lab --list
+ml-lab lab01 --no-plots
+ml-lab lab04 --csv-path training.csv
+```
+
+## Build distribution files
+
+```powershell
+python -m build
+```
+
+## Notes
+
+- `lab07` uses California Housing as a practical replacement for the deprecated Boston dataset loader.
+- `lab09` and the Auto MPG fallback in `lab07` may download datasets the first time they are run.
